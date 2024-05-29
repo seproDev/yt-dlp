@@ -1,27 +1,19 @@
-name: Release (master)
+name: Release (macos)
 on:
   push:
     branches:
-      - master
-    paths:
-      - "yt_dlp/**.py"
-      - "!yt_dlp/version.py"
-      - "bundle/*.py"
-      - "pyproject.toml"
-      - "Makefile"
-      - ".github/workflows/build.yml"
+      - macos
 concurrency:
-  group: release-master
+  group: release-macos
 permissions:
   contents: read
 
 jobs:
   release:
-    if: vars.BUILD_MASTER != ''
     uses: ./.github/workflows/release.yml
     with:
       prerelease: true
-      source: master
+      source: macos
     permissions:
       contents: write
       packages: write

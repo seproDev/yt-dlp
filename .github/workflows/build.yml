@@ -10,25 +10,25 @@ on:
         default: stable
         type: string
       unix:
-        default: true
+        default: false
         type: boolean
       linux_static:
-        default: true
+        default: false
         type: boolean
       linux_arm:
-        default: true
+        default: false
         type: boolean
       macos:
         default: true
         type: boolean
       macos_legacy:
-        default: true
+        default: false
         type: boolean
       windows:
-        default: true
+        default: false
         type: boolean
       windows32:
-        default: true
+        default: false
         type: boolean
       origin:
         required: false
