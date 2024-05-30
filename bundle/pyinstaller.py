@@ -38,6 +38,7 @@ def main():
         '--upx-exclude=vcruntime140.dll',
         '--noconfirm',
         '--additional-hooks-dir=yt_dlp/__pyinstaller',
+        '--log-level=DEBUG',
         *opts,
         'yt_dlp/__main__.py',
     ]
