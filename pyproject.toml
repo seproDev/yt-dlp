@@ -184,21 +184,53 @@ line-length = 120
 
 [tool.ruff.lint]
 ignore = [
-    "E402",  # module level import not at top of file
-    "E501",  # line too long
-    "E731",  # do not assign a lambda expression, use a def
-    "E741",  # ambiguous variable name
+    "E402",   # module level import not at top of file
+    "E501",   # line too long
+    "E731",   # do not assign a lambda expression, use a def
+    "E741",   # ambiguous variable name
+    "UP036",  # version block is outdated for minimum Python version
+    "B006",   # Do not use mutable data structures for argument defaults
+    "B023",   # Function definition does not bind loop variable (false positives)
+    "B028",   # No explicit `stacklevel` keyword argument found
+    "B904",   # Raise without from inside except
+    "PIE790", # Unnecessary `pass` statement
+    "SIM212", # If expression with twisted branches
+    "RUF001", # String contains ambiguous characters
+    "RUF012", # Mutable class attributes should be annotated
 ]
 select = [
-    "E",  # pycodestyle errors
-    "W",  # pycodestyle warnings
-    "F",  # pyflakes
-    "I",  # import order
+    "E",      # pycodestyle Error
+    "W",      # pycodestyle Warning
+    "F",      # Pyflakes
+    "I",      # isort
+    "Q",      # flake8-quotes
+    "N803",   # invalid-argument-name
+    "N804",   # invalid-first-argument-name-for-class-method
+    "N805",   # invalid-first-argument-name-for-method
+    "UP",     # pyupgrade
+    "B",      # flake8-bugbear
+    "A",      # flake8-builtins
+    "COM",    # flake8-commas
+    "C4",     # flake8-comprehensions
+    "ISC",    # flake8-implicit-str-concat
+    "ICN003", # banned-import-from
+    "PIE",    # flake8-pie
+    "T20",    # flake8-print
+    "RSE",    # flake8-raise
+    "RET504", # unnecessary-assign
+    "SIM",    # flake8-simplify
+    "TD004",  # missing-todo-colon
+    "TD005",  # missing-todo-description
+    "TD006",  # invalid-todo-capitalization
+    "TD007",  # missing-space-after-todo-colon
+    "PLC",    # Pylint Convention
+    "PLE",    # Pylint Error
+    "RUF",    # Ruff-specific rules
 ]
 
 [tool.ruff.lint.per-file-ignores]
 "devscripts/lazy_load_template.py" = ["F401"]
-"!yt_dlp/extractor/**.py" = ["I"]
+"!yt_dlp/extractor/**.py" = ["I", "ICN003", "T20"]
 
 [tool.ruff.lint.isort]
 known-first-party = [
@@ -207,6 +239,17 @@ known-first-party = [
     "test",
 ]
 relative-imports-order = "closest-to-furthest"
+
+[tool.ruff.lint.flake8-quotes]
+docstring-quotes = "double"
+multiline-quotes = "single"
+inline-quotes = "single"
+
+[tool.ruff.lint.pep8-naming]
+classmethod-decorators = ["yt_dlp.utils.classproperty"]
+
+[tool.ruff.lint.flake8-import-conventions]
+banned-from = ["base64", "datetime", "functools", "glob", "hashlib", "itertools", "json", "math", "os", "pathlib", "random", "re", "string", "sys", "time", "urllib", "uuid", "xml"]
 
 [tool.autopep8]
 max_line_length = 120
