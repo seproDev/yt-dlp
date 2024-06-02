@@ -10,6 +10,7 @@ from ..utils import (
     traverse_obj,
     try_get,
     url_or_none,
+    str_or_none,
 )
 
 
@@ -101,8 +102,8 @@ class YandexVideoIE(InfoExtractor):
 
         title = content.get('title') or content['computed_title']
 
-        formats = []
-        streams = content.get('streams') or []
+        formats=[]
+        streams = content.get( 'streams') or []
         streams.append({'url': content.get('content_url')})
         for stream in streams:
             content_url = url_or_none(stream.get('url'))
