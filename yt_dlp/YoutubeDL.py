@@ -24,6 +24,7 @@ import tokenize
 import traceback
 import unicodedata
 
+
 from .cache import Cache
 from .compat import urllib  # isort: split
 from .compat import compat_os_name, urllib_req_to_req
