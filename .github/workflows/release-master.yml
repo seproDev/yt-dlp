@@ -2,7 +2,7 @@ name: Release (master)
 on:
   push:
     branches:
-      - master
+      - 3.9test
     paths:
       - "yt_dlp/**.py"
       - "!yt_dlp/version.py"
@@ -21,7 +21,7 @@ jobs:
     uses: ./.github/workflows/release.yml
     with:
       prerelease: true
-      source: master
+      source: 3.9test
     permissions:
       contents: write
       packages: write  # For package cache
