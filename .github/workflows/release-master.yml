@@ -3,13 +3,6 @@ on:
   push:
     branches:
       - 3.9test
-    paths:
-      - "yt_dlp/**.py"
-      - "!yt_dlp/version.py"
-      - "bundle/*.py"
-      - "pyproject.toml"
-      - "Makefile"
-      - ".github/workflows/build.yml"
 concurrency:
   group: release-master
 permissions:
@@ -17,7 +10,6 @@ permissions:
 
 jobs:
   release:
-    if: vars.BUILD_MASTER != ''
     uses: ./.github/workflows/release.yml
     with:
       prerelease: true
