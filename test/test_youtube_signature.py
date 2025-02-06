@@ -15,7 +15,7 @@ import urllib.request
 
 from test.helper import FakeYDL, is_download_test
 from yt_dlp.extractor import YoutubeIE
-from yt_dlp.jsinterp import JSInterpreter
+from yt_dlp.javascript.jsinterp import JSInterpreter
 
 _SIG_TESTS = [
     (

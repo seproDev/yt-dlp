@@ -32,7 +32,8 @@ from .downloader import FFmpegFD, get_suitable_downloader, shorten_protocol_name
 from .downloader.rtmp import rtmpdump_version
 from .extractor import gen_extractor_classes, get_info_extractor
 from .extractor.common import UnsupportedURLIE
-from .extractor.openload import PhantomJSwrapper
+from .javascript.phantomjs import PhantomJSwrapper
+from .javascript.deno import DenoWrapper
 from .minicurses import format_text
 from .networking import HEADRequest, Request, RequestDirector
 from .networking.common import _REQUEST_HANDLERS, _RH_PREFERENCES
@@ -4065,6 +4066,7 @@ class YoutubeDL:
 
         exe_versions['rtmpdump'] = rtmpdump_version()
         exe_versions['phantomjs'] = PhantomJSwrapper._version()
+        exe_versions['deno'] = DenoWrapper._version()
         exe_str = ', '.join(
             f'{exe} {v}' for exe, v in sorted(exe_versions.items()) if v
         ) or 'none'
